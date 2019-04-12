@@ -1,0 +1,4 @@
+services:
+#    dommage_corporel.example:
+#        class: Vigiroute\DommageCorporelBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,4 @@
+services:
+#    geographie.example:
+#        class: Vigiroute\GeographieBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

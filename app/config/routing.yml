@@ -1,0 +1,35 @@
+gendarmerie:
+    resource: "@GendarmerieBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dommage_corporel:
+    resource: "@DommageCorporelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dommage_materiel:
+    resource: "@DommageMaterielBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dommage:
+    resource: "@DommageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+controle:
+    resource: "@ControleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+equipement:
+    resource: "@EquipementBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+geographie:
+    resource: "@GeographieBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

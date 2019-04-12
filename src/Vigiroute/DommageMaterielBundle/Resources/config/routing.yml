@@ -1,0 +1,3 @@
+dommage_materiel_homepage:
+    path:     /
+    defaults: { _controller: DommageMaterielBundle:Default:index }

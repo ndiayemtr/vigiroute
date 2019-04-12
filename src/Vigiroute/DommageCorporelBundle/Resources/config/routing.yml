@@ -1,0 +1,3 @@
+dommage_corporel_homepage:
+    path:     /
+    defaults: { _controller: DommageCorporelBundle:Default:index }

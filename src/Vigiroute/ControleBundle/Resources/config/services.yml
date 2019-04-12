@@ -1,0 +1,4 @@
+services:
+#    controle.example:
+#        class: Vigiroute\ControleBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
