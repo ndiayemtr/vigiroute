@@ -77,3 +77,18 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+        
+# Windows configuration converti en PDF
+knp_snappy:
+    temporary_folder: %kernel.cache_dir%/snappy 
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            encoding: UTF-8
+            page-size: A2
+            margin-left: 15mm
+            margin-right: 15mm
+            user-style-sheet: C:\wamp64\www\vigiroute\web\css
+    
