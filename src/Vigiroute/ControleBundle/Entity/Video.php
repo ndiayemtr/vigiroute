@@ -41,6 +41,13 @@ class Video
      * @ORM\Column(name="lienFichier", type="string", length=255)
      */
     private $lienFichier;
+    
+    /**
+     * 
+     *@ORM\OneToOne(targetEntity="Vigiroute\ControleBundle\Entity\Controle", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $controle;
 
 
     /**
@@ -124,5 +131,28 @@ class Video
     {
         return $this->lienFichier;
     }
-}
 
+    /**
+     * Set controle
+     *
+     * @param \Vigiroute\ControleBundle\Entity\Controle $controle
+     *
+     * @return Video
+     */
+    public function setControle(\Vigiroute\ControleBundle\Entity\Controle $controle)
+    {
+        $this->controle = $controle;
+
+        return $this;
+    }
+
+    /**
+     * Get controle
+     *
+     * @return \Vigiroute\ControleBundle\Entity\Controle
+     */
+    public function getControle()
+    {
+        return $this->controle;
+    }
+}

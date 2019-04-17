@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="operation_corporel")
  * @ORM\Entity(repositoryClass="Vigiroute\DommageCorporelBundle\Repository\OperationCorporelRepository")
  */
-class OperationCorporel
-{
+class OperationCorporel {
+
     /**
      * @var int
      *
@@ -42,14 +42,19 @@ class OperationCorporel
      */
     private $dateArriver;
 
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\DommageCorporelBundle\Entity\DommageCorporel", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dommageCorporel;
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -60,8 +65,7 @@ class OperationCorporel
      *
      * @return OperationCorporel
      */
-    public function setDateAlerte($dateAlerte)
-    {
+    public function setDateAlerte($dateAlerte) {
         $this->dateAlerte = $dateAlerte;
 
         return $this;
@@ -72,8 +76,7 @@ class OperationCorporel
      *
      * @return \DateTime
      */
-    public function getDateAlerte()
-    {
+    public function getDateAlerte() {
         return $this->dateAlerte;
     }
 
@@ -84,8 +87,7 @@ class OperationCorporel
      *
      * @return OperationCorporel
      */
-    public function setOrigineAlerte($origineAlerte)
-    {
+    public function setOrigineAlerte($origineAlerte) {
         $this->origineAlerte = $origineAlerte;
 
         return $this;
@@ -96,8 +98,7 @@ class OperationCorporel
      *
      * @return string
      */
-    public function getOrigineAlerte()
-    {
+    public function getOrigineAlerte() {
         return $this->origineAlerte;
     }
 
@@ -108,8 +109,7 @@ class OperationCorporel
      *
      * @return OperationCorporel
      */
-    public function setDateArriver($dateArriver)
-    {
+    public function setDateArriver($dateArriver) {
         $this->dateArriver = $dateArriver;
 
         return $this;
@@ -120,9 +120,32 @@ class OperationCorporel
      *
      * @return \DateTime
      */
-    public function getDateArriver()
-    {
+    public function getDateArriver() {
         return $this->dateArriver;
     }
-}
 
+
+    /**
+     * Set dommageCorporel
+     *
+     * @param \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel
+     *
+     * @return OperationCorporel
+     */
+    public function setDommageCorporel(\Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel)
+    {
+        $this->dommageCorporel = $dommageCorporel;
+
+        return $this;
+    }
+
+    /**
+     * Get dommageCorporel
+     *
+     * @return \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel
+     */
+    public function getDommageCorporel()
+    {
+        return $this->dommageCorporel;
+    }
+}

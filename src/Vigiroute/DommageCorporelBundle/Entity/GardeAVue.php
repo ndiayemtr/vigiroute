@@ -34,6 +34,13 @@ class GardeAVue
      * @ORM\Column(name="dateFin", type="datetime")
      */
     private $dateFin;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Vigiroute\DommageCorporelBundle\Entity\DommageCorporel", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dommageCorporel;
 
 
     /**
@@ -93,5 +100,28 @@ class GardeAVue
     {
         return $this->dateFin;
     }
-}
 
+    /**
+     * Set dommageCorporel
+     *
+     * @param \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel
+     *
+     * @return GardeAVue
+     */
+    public function setDommageCorporel(\Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel)
+    {
+        $this->dommageCorporel = $dommageCorporel;
+
+        return $this;
+    }
+
+    /**
+     * Get dommageCorporel
+     *
+     * @return \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel
+     */
+    public function getDommageCorporel()
+    {
+        return $this->dommageCorporel;
+    }
+}

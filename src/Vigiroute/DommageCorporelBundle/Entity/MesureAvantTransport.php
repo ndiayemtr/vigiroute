@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="mesure_avant_transport")
  * @ORM\Entity(repositoryClass="Vigiroute\DommageCorporelBundle\Repository\MesureAvantTransportRepository")
  */
-class MesureAvantTransport
-{
+class MesureAvantTransport {
+
     /**
      * @var int
      *
@@ -35,14 +35,19 @@ class MesureAvantTransport
      */
     private $infirmerie;
 
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\DommageCorporelBundle\Entity\OperationCorporel", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $operationCorporel;
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -53,8 +58,7 @@ class MesureAvantTransport
      *
      * @return MesureAvantTransport
      */
-    public function setCr($cr)
-    {
+    public function setCr($cr) {
         $this->cr = $cr;
 
         return $this;
@@ -65,8 +69,7 @@ class MesureAvantTransport
      *
      * @return string
      */
-    public function getCr()
-    {
+    public function getCr() {
         return $this->cr;
     }
 
@@ -77,8 +80,7 @@ class MesureAvantTransport
      *
      * @return MesureAvantTransport
      */
-    public function setInfirmerie($infirmerie)
-    {
+    public function setInfirmerie($infirmerie) {
         $this->infirmerie = $infirmerie;
 
         return $this;
@@ -89,9 +91,32 @@ class MesureAvantTransport
      *
      * @return string
      */
-    public function getInfirmerie()
-    {
+    public function getInfirmerie() {
         return $this->infirmerie;
     }
-}
 
+
+    /**
+     * Set operationCorporel
+     *
+     * @param \Vigiroute\DommageCorporelBundle\Entity\OperationCorporel $operationCorporel
+     *
+     * @return MesureAvantTransport
+     */
+    public function setOperationCorporel(\Vigiroute\DommageCorporelBundle\Entity\OperationCorporel $operationCorporel)
+    {
+        $this->operationCorporel = $operationCorporel;
+
+        return $this;
+    }
+
+    /**
+     * Get operationCorporel
+     *
+     * @return \Vigiroute\DommageCorporelBundle\Entity\OperationCorporel
+     */
+    public function getOperationCorporel()
+    {
+        return $this->operationCorporel;
+    }
+}

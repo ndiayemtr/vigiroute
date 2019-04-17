@@ -2,6 +2,8 @@
 
 namespace Vigiroute\EquipementBundle\Entity;
 
+use Vigiroute\EquipementBundle\Entity\Outil as UseOutil;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="terminal")
  * @ORM\Entity(repositoryClass="Vigiroute\EquipementBundle\Repository\TerminalRepository")
  */
-class Terminal
+class Terminal extends UseOutil
 {
     /**
      * @var int
@@ -32,4 +34,3 @@ class Terminal
         return $this->id;
     }
 }
-

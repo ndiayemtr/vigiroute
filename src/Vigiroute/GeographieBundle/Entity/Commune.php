@@ -2,6 +2,8 @@
 
 namespace Vigiroute\GeographieBundle\Entity;
 
+use Vigiroute\GeographieBundle\Entity\InfoLocalite as UseRegion;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="commune")
  * @ORM\Entity(repositoryClass="Vigiroute\GeographieBundle\Repository\communeRepository")
  */
-class Commune
+class Commune extends UseRegion
 {
     /**
      * @var int
@@ -27,6 +29,12 @@ class Commune
      * @ORM\Column(name="nomCommune", type="string", length=255)
      */
     private $nomCommune;
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="Vigiroute\GeographieBundle\Entity\Departement", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
 
 
     /**
@@ -62,5 +70,28 @@ class Commune
     {
         return $this->nomCommune;
     }
-}
 
+    /**
+     * Set departement
+     *
+     * @param \Vigiroute\GeographieBundle\Entity\Departement $departement
+     *
+     * @return Commune
+     */
+    public function setDepartement(\Vigiroute\GeographieBundle\Entity\Departement $departement)
+    {
+        $this->departement = $departement;
+
+        return $this;
+    }
+
+    /**
+     * Get departement
+     *
+     * @return \Vigiroute\GeographieBundle\Entity\Departement
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
+    }
+}

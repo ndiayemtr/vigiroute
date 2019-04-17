@@ -55,6 +55,12 @@ class Equipe
      * @ORM\Column(name="dateDissolution", type="datetime")
      */
     private $dateDissolution;
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="Vigiroute\UserBundle\Entity\Agent", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $agent;
 
 
     /**
@@ -186,5 +192,28 @@ class Equipe
     {
         return $this->dateDissolution;
     }
-}
 
+    /**
+     * Set agent
+     *
+     * @param \Vigiroute\UserBundle\Entity\Agent $agent
+     *
+     * @return Equipe
+     */
+    public function setAgent(\Vigiroute\UserBundle\Entity\Agent $agent)
+    {
+        $this->agent = $agent;
+
+        return $this;
+    }
+
+    /**
+     * Get agent
+     *
+     * @return \Vigiroute\UserBundle\Entity\Agent
+     */
+    public function getAgent()
+    {
+        return $this->agent;
+    }
+}

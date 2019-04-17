@@ -24,7 +24,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", columnDefinition="enum('Conducteur', 'Piéton', 'Passager', 'Témoin')")
      */
     private $type;
 
@@ -76,6 +76,13 @@ class Personne
      * @ORM\Column(name="adresse", type="string", length=255)
      */
     private $adresse;
+    
+    /**
+     * 
+     *@ORM\ManyToOne(targetEntity="Vigiroute\ControleBundle\Entity\Controle", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $controle;
 
 
     /**

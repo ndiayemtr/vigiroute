@@ -62,6 +62,13 @@ class Vehicule
      * @ORM\Column(name="observation", type="string", length=255)
      */
     private $observation;
+    
+    /**
+      * 
+     *@ORM\OneToOne(targetEntity="Vigiroute\ControleBundle\Entity\Contrevention", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $contrevention;
 
 
     /**
@@ -217,5 +224,28 @@ class Vehicule
     {
         return $this->observation;
     }
-}
 
+    /**
+     * Set contrevention
+     *
+     * @param \Vigiroute\ControleBundle\Entity\Contrevention $contrevention
+     *
+     * @return Vehicule
+     */
+    public function setContrevention(\Vigiroute\ControleBundle\Entity\Contrevention $contrevention)
+    {
+        $this->contrevention = $contrevention;
+
+        return $this;
+    }
+
+    /**
+     * Get contrevention
+     *
+     * @return \Vigiroute\ControleBundle\Entity\Contrevention
+     */
+    public function getContrevention()
+    {
+        return $this->contrevention;
+    }
+}

@@ -2,6 +2,8 @@
 
 namespace Vigiroute\EquipementBundle\Entity;
 
+use Vigiroute\EquipementBundle\Entity\Outil as UseOutil;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="webcam")
  * @ORM\Entity(repositoryClass="Vigiroute\EquipementBundle\Repository\WebcamRepository")
  */
-class Webcam
+class Webcam extends UseOutil
 {
     /**
      * @var int
@@ -32,4 +34,3 @@ class Webcam
         return $this->id;
     }
 }
-

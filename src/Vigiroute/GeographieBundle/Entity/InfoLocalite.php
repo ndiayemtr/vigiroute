@@ -62,10 +62,11 @@ class InfoLocalite
      * @ORM\Column(name="telProcureur", type="integer")
      */
     private $telProcureur;
+    
     /**
      * @var int
      *
-     * @ORM\Column(name="telProcureur", type="integer")
+     * @ORM\Column(name="telHopRegion", type="integer")
      */
     private $telHopRegion;
 
@@ -223,5 +224,28 @@ class InfoLocalite
     {
         return $this->telProcureur;
     }
-}
 
+    /**
+     * Set telHopRegion
+     *
+     * @param integer $telHopRegion
+     *
+     * @return InfoLocalite
+     */
+    public function setTelHopRegion($telHopRegion)
+    {
+        $this->telHopRegion = $telHopRegion;
+
+        return $this;
+    }
+
+    /**
+     * Get telHopRegion
+     *
+     * @return integer
+     */
+    public function getTelHopRegion()
+    {
+        return $this->telHopRegion;
+    }
+}

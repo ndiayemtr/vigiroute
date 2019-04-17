@@ -2,6 +2,7 @@
 
 namespace Vigiroute\GendarmerieBundle\Entity;
 
+use Vigiroute\GeographieBundle\Entity\Secteur;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="mission")
  * @ORM\Entity(repositoryClass="Vigiroute\GendarmerieBundle\Repository\MissionRepository")
  */
-class Mission
-{
+class Mission {
+
     /**
      * @var int
      *
@@ -56,14 +57,24 @@ class Mission
      */
     private $observation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Vigiroute\GeographieBundle\Entity\Secteur", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $secteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Vigiroute\GendarmerieBundle\Entity\Equipe", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $equipe;
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -74,8 +85,7 @@ class Mission
      *
      * @return Mission
      */
-    public function setCodeMission($codeMission)
-    {
+    public function setCodeMission($codeMission) {
         $this->codeMission = $codeMission;
 
         return $this;
@@ -86,8 +96,7 @@ class Mission
      *
      * @return int
      */
-    public function getCodeMission()
-    {
+    public function getCodeMission() {
         return $this->codeMission;
     }
 
@@ -98,8 +107,7 @@ class Mission
      *
      * @return Mission
      */
-    public function setObjet($objet)
-    {
+    public function setObjet($objet) {
         $this->objet = $objet;
 
         return $this;
@@ -110,8 +118,7 @@ class Mission
      *
      * @return string
      */
-    public function getObjet()
-    {
+    public function getObjet() {
         return $this->objet;
     }
 
@@ -122,8 +129,7 @@ class Mission
      *
      * @return Mission
      */
-    public function setDateDebut($dateDebut)
-    {
+    public function setDateDebut($dateDebut) {
         $this->dateDebut = $dateDebut;
 
         return $this;
@@ -134,8 +140,7 @@ class Mission
      *
      * @return \DateTime
      */
-    public function getDateDebut()
-    {
+    public function getDateDebut() {
         return $this->dateDebut;
     }
 
@@ -146,8 +151,7 @@ class Mission
      *
      * @return Mission
      */
-    public function setDateFin($dateFin)
-    {
+    public function setDateFin($dateFin) {
         $this->dateFin = $dateFin;
 
         return $this;
@@ -158,8 +162,7 @@ class Mission
      *
      * @return \DateTime
      */
-    public function getDateFin()
-    {
+    public function getDateFin() {
         return $this->dateFin;
     }
 
@@ -170,8 +173,7 @@ class Mission
      *
      * @return Mission
      */
-    public function setObservation($observation)
-    {
+    public function setObservation($observation) {
         $this->observation = $observation;
 
         return $this;
@@ -182,9 +184,56 @@ class Mission
      *
      * @return string
      */
-    public function getObservation()
-    {
+    public function getObservation() {
         return $this->observation;
     }
-}
 
+
+    /**
+     * Set secteur
+     *
+     * @param \use Vigiroute\GeographieBundle\Entity\Secteur $secteur
+     *
+     * @return Mission
+     */
+    public function setSecteur(Vigiroute\GeographieBundle\Entity\Secteur $secteur)
+    {
+        $this->secteur = $secteur;
+
+        return $this;
+    }
+
+    /**
+     * Get secteur
+     *
+     * @return \use Vigiroute\GeographieBundle\Entity\Secteur
+     */
+    public function getSecteur()
+    {
+        return $this->secteur;
+    }
+
+    /**
+     * Set equipe
+     *
+     * @param \Vigiroute\GendarmerieBundle\Entity\Equipe $equipe
+     *
+     * @return Mission
+     */
+    public function setEquipe(\Vigiroute\GendarmerieBundle\Entity\Equipe $equipe)
+    {
+        $this->equipe = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Get equipe
+     *
+     * @return \Vigiroute\GendarmerieBundle\Entity\Equipe
+     */
+    public function getEquipe()
+    {
+        return $this->equipe;
+    }
+}

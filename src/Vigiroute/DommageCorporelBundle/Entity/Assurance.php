@@ -206,5 +206,76 @@ class Assurance
     {
         return $this->tel;
     }
-}
 
+    /**
+     * Set risqueConvert
+     *
+     * @param string $risqueConvert
+     *
+     * @return Assurance
+     */
+    public function setRisqueConvert($risqueConvert)
+    {
+        $this->risqueConvert = $risqueConvert;
+
+        return $this;
+    }
+
+    /**
+     * Get risqueConvert
+     *
+     * @return string
+     */
+    public function getRisqueConvert()
+    {
+        return $this->risqueConvert;
+    }
+
+    /**
+     * Set dateSouscription
+     *
+     * @param \DateTime $dateSouscription
+     *
+     * @return Assurance
+     */
+    public function setDateSouscription($dateSouscription)
+    {
+        $this->dateSouscription = $dateSouscription;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSouscription
+     *
+     * @return \DateTime
+     */
+    public function getDateSouscription()
+    {
+        return $this->dateSouscription;
+    }
+
+    /**
+     * Set dateLimVal
+     *
+     * @param \DateTime $dateLimVal
+     *
+     * @return Assurance
+     */
+    public function setDateLimVal($dateLimVal)
+    {
+        $this->dateLimVal = $dateLimVal;
+
+        return $this;
+    }
+
+    /**
+     * Get dateLimVal
+     *
+     * @return \DateTime
+     */
+    public function getDateLimVal()
+    {
+        return $this->dateLimVal;
+    }
+}

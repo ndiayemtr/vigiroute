@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sanction")
  * @ORM\Entity(repositoryClass="Vigiroute\ControleBundle\Repository\SanctionRepository")
  */
-class Sanction
-{
+class Sanction {
+
     /**
      * @var int
      *
@@ -42,14 +42,19 @@ class Sanction
      */
     private $amende;
 
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Vigiroute\UserBundle\Entity\Personne", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $personne;
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -60,8 +65,7 @@ class Sanction
      *
      * @return Sanction
      */
-    public function setTypeInfraction($typeInfraction)
-    {
+    public function setTypeInfraction($typeInfraction) {
         $this->typeInfraction = $typeInfraction;
 
         return $this;
@@ -72,8 +76,7 @@ class Sanction
      *
      * @return string
      */
-    public function getTypeInfraction()
-    {
+    public function getTypeInfraction() {
         return $this->typeInfraction;
     }
 
@@ -84,8 +87,7 @@ class Sanction
      *
      * @return Sanction
      */
-    public function setCategorieInfraction($categorieInfraction)
-    {
+    public function setCategorieInfraction($categorieInfraction) {
         $this->categorieInfraction = $categorieInfraction;
 
         return $this;
@@ -96,8 +98,7 @@ class Sanction
      *
      * @return string
      */
-    public function getCategorieInfraction()
-    {
+    public function getCategorieInfraction() {
         return $this->categorieInfraction;
     }
 
@@ -108,8 +109,7 @@ class Sanction
      *
      * @return Sanction
      */
-    public function setAmende($amende)
-    {
+    public function setAmende($amende) {
         $this->amende = $amende;
 
         return $this;
@@ -120,9 +120,32 @@ class Sanction
      *
      * @return int
      */
-    public function getAmende()
-    {
+    public function getAmende() {
         return $this->amende;
     }
-}
 
+
+    /**
+     * Set personne
+     *
+     * @param \Vigiroute\UserBundle\Entity\Personne $personne
+     *
+     * @return Sanction
+     */
+    public function setPersonne(\Vigiroute\UserBundle\Entity\Personne $personne)
+    {
+        $this->personne = $personne;
+
+        return $this;
+    }
+
+    /**
+     * Get personne
+     *
+     * @return \Vigiroute\UserBundle\Entity\Personne
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
+    }
+}

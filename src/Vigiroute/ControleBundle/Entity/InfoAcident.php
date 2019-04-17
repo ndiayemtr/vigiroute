@@ -41,6 +41,13 @@ class InfoAcident
      * @ORM\Column(name="consequence", type="string", length=255)
      */
     private $consequence;
+    
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\ControleBundle\Entity\Affaire", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $affaire;
 
 
     /**
@@ -124,5 +131,28 @@ class InfoAcident
     {
         return $this->consequence;
     }
-}
 
+    /**
+     * Set affaire
+     *
+     * @param \Vigiroute\ControleBundle\Entity\Affaire $affaire
+     *
+     * @return InfoAcident
+     */
+    public function setAffaire(\Vigiroute\ControleBundle\Entity\Affaire $affaire)
+    {
+        $this->affaire = $affaire;
+
+        return $this;
+    }
+
+    /**
+     * Get affaire
+     *
+     * @return \Vigiroute\ControleBundle\Entity\Affaire
+     */
+    public function getAffaire()
+    {
+        return $this->affaire;
+    }
+}

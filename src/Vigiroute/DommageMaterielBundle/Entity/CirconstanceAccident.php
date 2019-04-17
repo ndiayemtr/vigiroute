@@ -48,6 +48,14 @@ class CirconstanceAccident
      * @ORM\Column(name="topographie", type="string", length=255)
      */
     private $topographie;
+    
+        
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\DommageMaterielBundle\Entity\DommageMateriels", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dommageMateriel;
 
 
     /**
@@ -155,5 +163,28 @@ class CirconstanceAccident
     {
         return $this->topographie;
     }
-}
 
+    /**
+     * Set dommageMateriel
+     *
+     * @param \Vigiroute\DommageMaterielBundle\Entity\DommageMateriels $dommageMateriel
+     *
+     * @return CirconstanceAccident
+     */
+    public function setDommageMateriel(\Vigiroute\DommageMaterielBundle\Entity\DommageMateriels $dommageMateriel)
+    {
+        $this->dommageMateriel = $dommageMateriel;
+
+        return $this;
+    }
+
+    /**
+     * Get dommageMateriel
+     *
+     * @return \Vigiroute\DommageMaterielBundle\Entity\DommageMateriels
+     */
+    public function getDommageMateriel()
+    {
+        return $this->dommageMateriel;
+    }
+}

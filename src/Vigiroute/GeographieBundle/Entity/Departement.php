@@ -2,6 +2,9 @@
 
 namespace Vigiroute\GeographieBundle\Entity;
 
+use Vigiroute\GeographieBundle\Entity\Region;
+use Vigiroute\GeographieBundle\Entity\InfoLocalite as UseRegion;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="departement")
  * @ORM\Entity(repositoryClass="Vigiroute\GeographieBundle\Repository\DepartementRepository")
  */
-class Departement
+class Departement extends UseRegion
 {
     /**
      * @var int
@@ -27,7 +30,12 @@ class Departement
      * @ORM\Column(name="nomDepart", type="string", length=255)
      */
     private $nomDepart;
-
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="Vigiroute\GeographieBundle\Entity\Region", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $Region;
 
     /**
      * Get id
@@ -62,5 +70,28 @@ class Departement
     {
         return $this->nomDepart;
     }
-}
 
+    /**
+     * Set region
+     *
+     * @param \Vigiroute\GeographieBundle\Entity\Region $region
+     *
+     * @return Departement
+     */
+    public function setRegion(\Vigiroute\GeographieBundle\Entity\Region $region)
+    {
+        $this->Region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return \Vigiroute\GeographieBundle\Entity\Region
+     */
+    public function getRegion()
+    {
+        return $this->Region;
+    }
+}

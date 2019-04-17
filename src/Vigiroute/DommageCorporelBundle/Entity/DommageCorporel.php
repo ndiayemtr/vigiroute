@@ -20,6 +20,13 @@ class DommageCorporel
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\ControleBundle\Entity\InfoAcident", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $infoAcident;
 
 
     /**
@@ -31,5 +38,28 @@ class DommageCorporel
     {
         return $this->id;
     }
-}
 
+    /**
+     * Set infoAcident
+     *
+     * @param \Vigiroute\ControleBundle\Entity\InfoAcident $infoAcident
+     *
+     * @return DommageCorporel
+     */
+    public function setInfoAcident(\Vigiroute\ControleBundle\Entity\InfoAcident $infoAcident)
+    {
+        $this->infoAcident = $infoAcident;
+
+        return $this;
+    }
+
+    /**
+     * Get infoAcident
+     *
+     * @return \Vigiroute\ControleBundle\Entity\InfoAcident
+     */
+    public function getInfoAcident()
+    {
+        return $this->infoAcident;
+    }
+}

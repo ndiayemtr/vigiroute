@@ -2,6 +2,8 @@
 
 namespace Vigiroute\GeographieBundle\Entity;
 
+use Vigiroute\GeographieBundle\Entity\InfoLocalite as UseRegion;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="region")
  * @ORM\Entity(repositoryClass="Vigiroute\GeographieBundle\Repository\RegionRepository")
  */
-class Region
+class Region extends UseRegion
 {
     /**
      * @var int
@@ -63,4 +65,3 @@ class Region
         return $this->nomRegion;
     }
 }
-

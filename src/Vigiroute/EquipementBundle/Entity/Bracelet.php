@@ -2,6 +2,8 @@
 
 namespace Vigiroute\EquipementBundle\Entity;
 
+use Vigiroute\EquipementBundle\Entity\Outil as UseOutil;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="bracelet")
  * @ORM\Entity(repositoryClass="Vigiroute\EquipementBundle\Repository\BraceletRepository")
  */
-class Bracelet
+class Bracelet extends UseOutil
 {
     /**
      * @var int
@@ -32,4 +34,3 @@ class Bracelet
         return $this->id;
     }
 }
-

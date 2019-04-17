@@ -2,6 +2,8 @@
 
 namespace Vigiroute\GeographieBundle\Entity;
 
+use Vigiroute\GeographieBundle\Entity\Commune;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,7 +50,12 @@ class Secteur
      * @ORM\Column(name="carte", type="string", length=255)
      */
     private $carte;
-
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="Vigiroute\GeographieBundle\Entity\Commune", cascade={"persist", "remove"})
+     *@ORM\JoinColumn(nullable=false)
+     */
+    private $commune;
 
     /**
      * Get id
@@ -155,5 +162,28 @@ class Secteur
     {
         return $this->carte;
     }
-}
 
+    /**
+     * Set commune
+     *
+     * @param \Vigiroute\GeographieBundle\Entity\Commune $commune
+     *
+     * @return Secteur
+     */
+    public function setCommune(\Vigiroute\GeographieBundle\Entity\Commune $commune)
+    {
+        $this->commune = $commune;
+
+        return $this;
+    }
+
+    /**
+     * Get commune
+     *
+     * @return \Vigiroute\GeographieBundle\Entity\Commune
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+}

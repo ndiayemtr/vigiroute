@@ -55,6 +55,13 @@ class CaractereRoute
      * @ORM\Column(name="surface", type="string", length=255)
      */
     private $surface;
+    
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\DommageMaterielBundle\Entity\DommageMateriels", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dommageMateriel;
 
 
     /**
@@ -186,5 +193,28 @@ class CaractereRoute
     {
         return $this->surface;
     }
-}
 
+    /**
+     * Set dommageMateriel
+     *
+     * @param \Vigiroute\DommageMaterielBundle\Entity\DommageMateriels $dommageMateriel
+     *
+     * @return CaractereRoute
+     */
+    public function setDommageMateriel(\Vigiroute\DommageMaterielBundle\Entity\DommageMateriels $dommageMateriel)
+    {
+        $this->dommageMateriel = $dommageMateriel;
+
+        return $this;
+    }
+
+    /**
+     * Get dommageMateriel
+     *
+     * @return \Vigiroute\DommageMaterielBundle\Entity\DommageMateriels
+     */
+    public function getDommageMateriel()
+    {
+        return $this->dommageMateriel;
+    }
+}

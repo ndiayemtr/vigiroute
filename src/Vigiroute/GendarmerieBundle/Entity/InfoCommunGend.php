@@ -249,4 +249,3 @@ class InfoCommunGend
         return $this->carte;
     }
 }
-

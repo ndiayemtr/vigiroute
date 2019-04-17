@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="constant_vehicule")
  * @ORM\Entity(repositoryClass="Vigiroute\DommageCorporelBundle\Repository\ConstantVehiculeRepository")
  */
-class ConstantVehicule
-{
+class ConstantVehicule {
+
     /**
      * @var int
      *
@@ -147,14 +147,19 @@ class ConstantVehicule
      */
     private $degatApparent;
 
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\DommageCorporelBundle\Entity\DommageCorporel", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dommageCorporel;
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -165,8 +170,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setDimLong($dimLong)
-    {
+    public function setDimLong($dimLong) {
         $this->dimLong = $dimLong;
 
         return $this;
@@ -177,8 +181,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getDimLong()
-    {
+    public function getDimLong() {
         return $this->dimLong;
     }
 
@@ -189,8 +192,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setDimLarg($dimLarg)
-    {
+    public function setDimLarg($dimLarg) {
         $this->dimLarg = $dimLarg;
 
         return $this;
@@ -201,8 +203,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getDimLarg()
-    {
+    public function getDimLarg() {
         return $this->dimLarg;
     }
 
@@ -213,8 +214,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setDimHaut($dimHaut)
-    {
+    public function setDimHaut($dimHaut) {
         $this->dimHaut = $dimHaut;
 
         return $this;
@@ -225,8 +225,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getDimHaut()
-    {
+    public function getDimHaut() {
         return $this->dimHaut;
     }
 
@@ -237,8 +236,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setNbreRoues($nbreRoues)
-    {
+    public function setNbreRoues($nbreRoues) {
         $this->nbreRoues = $nbreRoues;
 
         return $this;
@@ -249,8 +247,7 @@ class ConstantVehicule
      *
      * @return int
      */
-    public function getNbreRoues()
-    {
+    public function getNbreRoues() {
         return $this->nbreRoues;
     }
 
@@ -261,8 +258,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setTypePneux($typePneux)
-    {
+    public function setTypePneux($typePneux) {
         $this->typePneux = $typePneux;
 
         return $this;
@@ -273,8 +269,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getTypePneux()
-    {
+    public function getTypePneux() {
         return $this->typePneux;
     }
 
@@ -285,8 +280,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setIndicateurVitesse($indicateurVitesse)
-    {
+    public function setIndicateurVitesse($indicateurVitesse) {
         $this->indicateurVitesse = $indicateurVitesse;
 
         return $this;
@@ -297,8 +291,7 @@ class ConstantVehicule
      *
      * @return int
      */
-    public function getIndicateurVitesse()
-    {
+    public function getIndicateurVitesse() {
         return $this->indicateurVitesse;
     }
 
@@ -309,8 +302,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setLevierVitesse($levierVitesse)
-    {
+    public function setLevierVitesse($levierVitesse) {
         $this->levierVitesse = $levierVitesse;
 
         return $this;
@@ -321,8 +313,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getLevierVitesse()
-    {
+    public function getLevierVitesse() {
         return $this->levierVitesse;
     }
 
@@ -333,8 +324,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setFrein($frein)
-    {
+    public function setFrein($frein) {
         $this->frein = $frein;
 
         return $this;
@@ -345,8 +335,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getFrein()
-    {
+    public function getFrein() {
         return $this->frein;
     }
 
@@ -357,8 +346,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setAvertissement($avertissement)
-    {
+    public function setAvertissement($avertissement) {
         $this->avertissement = $avertissement;
 
         return $this;
@@ -369,8 +357,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getAvertissement()
-    {
+    public function getAvertissement() {
         return $this->avertissement;
     }
 
@@ -381,8 +368,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setNbrePlace($nbrePlace)
-    {
+    public function setNbrePlace($nbrePlace) {
         $this->nbrePlace = $nbrePlace;
 
         return $this;
@@ -393,8 +379,7 @@ class ConstantVehicule
      *
      * @return int
      */
-    public function getNbrePlace()
-    {
+    public function getNbrePlace() {
         return $this->nbrePlace;
     }
 
@@ -405,8 +390,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setNbreOccupant($nbreOccupant)
-    {
+    public function setNbreOccupant($nbreOccupant) {
         $this->nbreOccupant = $nbreOccupant;
 
         return $this;
@@ -417,8 +401,7 @@ class ConstantVehicule
      *
      * @return int
      */
-    public function getNbreOccupant()
-    {
+    public function getNbreOccupant() {
         return $this->nbreOccupant;
     }
 
@@ -429,8 +412,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setChargement($chargement)
-    {
+    public function setChargement($chargement) {
         $this->chargement = $chargement;
 
         return $this;
@@ -441,8 +423,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getChargement()
-    {
+    public function getChargement() {
         return $this->chargement;
     }
 
@@ -453,8 +434,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setAccessoire($accessoire)
-    {
+    public function setAccessoire($accessoire) {
         $this->accessoire = $accessoire;
 
         return $this;
@@ -465,8 +445,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getAccessoire()
-    {
+    public function getAccessoire() {
         return $this->accessoire;
     }
 
@@ -477,8 +456,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setKmCompteur($kmCompteur)
-    {
+    public function setKmCompteur($kmCompteur) {
         $this->kmCompteur = $kmCompteur;
 
         return $this;
@@ -489,8 +467,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getKmCompteur()
-    {
+    public function getKmCompteur() {
         return $this->kmCompteur;
     }
 
@@ -501,8 +478,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setTraces($traces)
-    {
+    public function setTraces($traces) {
         $this->traces = $traces;
 
         return $this;
@@ -513,8 +489,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getTraces()
-    {
+    public function getTraces() {
         return $this->traces;
     }
 
@@ -525,8 +500,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setDebris($debris)
-    {
+    public function setDebris($debris) {
         $this->debris = $debris;
 
         return $this;
@@ -537,8 +511,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getDebris()
-    {
+    public function getDebris() {
         return $this->debris;
     }
 
@@ -549,8 +522,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setPointDChoc($pointDChoc)
-    {
+    public function setPointDChoc($pointDChoc) {
         $this->pointDChoc = $pointDChoc;
 
         return $this;
@@ -561,8 +533,7 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getPointDChoc()
-    {
+    public function getPointDChoc() {
         return $this->pointDChoc;
     }
 
@@ -573,8 +544,7 @@ class ConstantVehicule
      *
      * @return ConstantVehicule
      */
-    public function setDegatApparent($degatApparent)
-    {
+    public function setDegatApparent($degatApparent) {
         $this->degatApparent = $degatApparent;
 
         return $this;
@@ -585,9 +555,32 @@ class ConstantVehicule
      *
      * @return string
      */
-    public function getDegatApparent()
-    {
+    public function getDegatApparent() {
         return $this->degatApparent;
     }
-}
 
+
+    /**
+     * Set dommageCorporel
+     *
+     * @param \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel
+     *
+     * @return ConstantVehicule
+     */
+    public function setDommageCorporel(\Vigiroute\DommageCorporelBundle\Entity\DommageCorporel $dommageCorporel)
+    {
+        $this->dommageCorporel = $dommageCorporel;
+
+        return $this;
+    }
+
+    /**
+     * Get dommageCorporel
+     *
+     * @return \Vigiroute\DommageCorporelBundle\Entity\DommageCorporel
+     */
+    public function getDommageCorporel()
+    {
+        return $this->dommageCorporel;
+    }
+}

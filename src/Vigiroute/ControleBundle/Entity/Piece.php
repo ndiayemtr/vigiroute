@@ -48,6 +48,13 @@ class Piece
      * @ORM\Column(name="dateFinValide", type="datetime")
      */
     private $dateFinValide;
+    
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="Vigiroute\ControleBundle\Entity\Vehicule", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $vehicule;
 
 
     /**
@@ -155,5 +162,28 @@ class Piece
     {
         return $this->dateFinValide;
     }
-}
 
+    /**
+     * Set vehicule
+     *
+     * @param \Vigiroute\ControleBundle\Entity\Vehicule $vehicule
+     *
+     * @return Piece
+     */
+    public function setVehicule(\Vigiroute\ControleBundle\Entity\Vehicule $vehicule)
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get vehicule
+     *
+     * @return \Vigiroute\ControleBundle\Entity\Vehicule
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+}
